@@ -109,13 +109,12 @@ def crop_black_border(image):
 
 
 def validate(net, data_loader, set_name, classes_name,model_name, device):
-    """`
-    对一批数据进行预测，返回混淆矩阵以及Accuracy
+    """
     :param net:
     :param data_loader:
-    :param set_name:  eg: 'valid' 'train' 'tesst
+    :param set_name:  eg: 'valid' 'train' 'test
     :param classes_name:
-    :return:
+    :return: Confusion Matrix and Accuracy
     """
     net.eval()
     cls_num = len(classes_name)
@@ -135,7 +134,7 @@ def validate(net, data_loader, set_name, classes_name,model_name, device):
 
         _, predicted = torch.max(outputs.data, 1)
 
-        # 统计混淆矩阵
+
         for i in range(len(labels)):
             cate_i = labels[i].cpu().numpy()
             pre_i = predicted[i].cpu().numpy()
@@ -152,17 +151,17 @@ def validate(net, data_loader, set_name, classes_name,model_name, device):
 
 
 def show_confMat(confusion_mat, classes, set_name, out_dir):
-    # 归一化
+
     confusion_mat_N = confusion_mat.copy()
     for i in range(len(classes)):
         confusion_mat_N[i, :] = confusion_mat[i, :] / confusion_mat[i, :].sum()
 
-    # 获取颜色
+
     cmap = plt.cm.get_cmap('Greys')  # 更多颜色: http://matplotlib.org/examples/color/colormaps_reference.html
     plt.imshow(confusion_mat_N, cmap=cmap)
     plt.colorbar()
 
-    # 设置文字
+ 
     xlocations = np.array(range(len(classes)))
     plt.xticks(xlocations, list(classes), rotation=60)
     plt.yticks(xlocations, list(classes))
@@ -170,11 +169,11 @@ def show_confMat(confusion_mat, classes, set_name, out_dir):
     plt.ylabel('True label')
     plt.title('Confusion_Matrix_' + set_name)
 
-    # 打印数字
+ 
     for i in range(confusion_mat_N.shape[0]):
         for j in range(confusion_mat_N.shape[1]):
             plt.text(x=j, y=i, s=int(confusion_mat[i, j]), va='center', ha='center', color='red', fontsize=10)
-    # 保存
+  
     plt.savefig(os.path.join(out_dir, 'Confusion_Matrix' + set_name + '.png'))
     plt.close()
 
