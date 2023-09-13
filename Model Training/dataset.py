@@ -1,7 +1,7 @@
 import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-from argments import args
+from configs import args
 
 def get_mean_std(args):
     dataset = args.dataset
