@@ -1,5 +1,5 @@
 import os
-from argments import args
+from configs import args
 import pandas as pd
 from utils import crop_black_border
 import cv2
