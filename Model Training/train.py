@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.optim as optim
 from datetime import datetime
 from tensorboardX import SummaryWriter
-from argments import args
+from configs import args
 from loss import FocalLoss
 from dataset import get_mean_std
 from utils import get_model
