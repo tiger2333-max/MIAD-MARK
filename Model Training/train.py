@@ -48,7 +48,7 @@ if __name__=='__main__':
     else:
         size = 224
 
-    mean,std = get_mean_std(args)
+    mean,std = get_mean_std(dataset)
 
     normTransform = transforms.Normalize(mean,std)
     trainTransform = transforms.Compose([
