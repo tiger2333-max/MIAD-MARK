@@ -3,8 +3,7 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from configs import args
 
-def get_mean_std(args):
-    dataset = args.dataset
+def get_mean_std(dataset):
 
     # Define a dictionary to store mean and std values for different datasets.
     # If you use your own dataset, please calculate the relative mean and std.
