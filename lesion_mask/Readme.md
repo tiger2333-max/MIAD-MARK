@@ -4,6 +4,8 @@ The grad-cam map can roughly locate the interest regions of CNN models.
 Generate grad-cam heatmaps of images, run:
 
 	gradcam.py --model_name --dataset --cla_num --sample_num --seed
+ 
+Large sample numbers may cause an error 'out of the GPU memory'.
 
 And the threshold controls the area of the mask. Thresholding and making a range of lesion masks, run:
 
