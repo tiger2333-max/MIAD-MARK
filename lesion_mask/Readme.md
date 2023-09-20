@@ -9,8 +9,8 @@ Large sample numbers may cause an error 'out of the GPU memory'. The resized ori
 
 And the threshold controls the area of the mask. Thresholding and making a range of lesion masks, run:
 
-	gen_mask.py --model_name --dataset --cla_num --up_val --down_val --step --seed
+	gen_mask.py --model_name --dataset --cla_num --down_val --up_val --step --seed
 
-Select the appropriate threshold for your task. A higher threshold leads to a bigger space for optimizing the watermarks' location. The different threshold masks will be saved in './MIAD-MARK/lesion_mask/results/[dataset]/[model_name]/[layer_name]+threshold_mask'.
+Select the appropriate threshold for your task. A higher threshold leads to a bigger space for optimizing the watermarks' location. The different threshold masks will be saved in './MIAD-MARK/lesion_mask/results/[dataset]/[model_name]/[layer_name]+_threshold_mask'.
 
   
